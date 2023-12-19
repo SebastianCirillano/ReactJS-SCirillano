@@ -1,0 +1,20 @@
+/* Estilo personalizado para la barra de navegación */
+.navbar {
+    background-color: #4db43f !important;
+    /* Color de fondo verde */
+}
+
+.nav-link {
+    color: #ffffff;
+}
+
+.navbar-collapse {
+    justify-content: center;
+} 
+
+
+.bi-bag {
+    fill: #ffffff;
+    margin-right: 30px;
+}
+
