@@ -1,9 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './style.css'
-import { Navbar } from './components/Navbar'
-import { ItemListContainer } from './components/ItemListContainer'
+import { Navbar } from './components/NavBar/NavBar';
+import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -11,12 +9,18 @@ function App() {
 
   return (
 
-    <div >
+    <BrowserRouter >
       <Navbar />
-      <ItemListContainer saludo="Bienvenidos a Verde"/>
-    </div>
 
-  )
+      <Routes>
+        <Route path="/" element={<ItemListContainer saludo="Somos Verde, bienvenidos!"/>} />
+        <Route path="/categoria/:categoria" element={<ItemListContainer />} />
+        <Route path="/detalle/:idProducto" element={ < ItemDetailContainer />} />
+      </Routes>
+
+    </BrowserRouter>
+
+  );
 }
 
 export default App

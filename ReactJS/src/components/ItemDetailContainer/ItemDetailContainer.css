@@ -1,0 +1,17 @@
+.item-detail-container {
+
+    display: flex;
+    padding: 20px;
+}
+
+.item-detail-container .ima {
+    max-width: 40%;
+    height: auto;
+    }
+
+.item-detail-container .nom {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4db43f;
+;
+}

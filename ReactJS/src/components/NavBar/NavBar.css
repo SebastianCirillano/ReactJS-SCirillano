@@ -6,15 +6,21 @@
 
 .nav-link {
     color: #ffffff;
+    justify-content: center;
 }
 
-.navbar-collapse {
+/* Centrar los enlaces en la barra de navegación */
+.navbar-nav {
+    margin-right: 450px; /* Esto debería centrar horizontalmente los enlaces */
     justify-content: center;
-} 
 
+}
 
 .bi-bag {
     fill: #ffffff;
     margin-right: 30px;
 }
 
+.logo {
+    width: 10%;
+}
