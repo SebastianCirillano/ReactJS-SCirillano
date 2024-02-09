@@ -1,31 +1,37 @@
-import { useEffect , useState } from "react"
-import obtenerProductos from "../../utilidades/data"
+import { useEffect, useState } from "react"
+
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
+import { doc, getDoc } from "firebase/firestore";
+import db from "../../db/db";
 
 import "./ItemDetailContainer.css";
 
 const ItemDetailContainer = () => {
-    const [producto, setProducto] = useState({})
-    const { idProducto } = useParams()
+    const [producto, setProducto] = useState({});
+    const [productoExiste, setProductoExiste] = useState(false);
+    const { id } = useParams();
 
     useEffect(() => {
+        const productoRef = doc(db, "productos", id);
+        getDoc(productoRef).then((respuesta) => {
+            const productoDb = { id: respuesta.id, ...respuesta.data() };
 
-        obtenerProductos
-            .then((respuesta) => {
-                const productoEncontrado = respuesta.find((productoData) => productoData.id === idProducto)
-                setProducto(productoEncontrado)
-            })
-
-    }, [])
+            if (!respuesta.exists()) {
+                setProductoExiste(true);
+            }
+            setProducto(productoDb);
+        });
+    }, [id]);
 
     return (
-        <div className = "item-detail-container">
-
-        <ItemDetail producto={producto} />
-
+        <div>
+            {productoExiste ? (
+                <div>Producto no existe</div>
+            ) : (
+                <ItemDetail producto={producto} />
+            )}
         </div>
-    )
-}
-
-export default ItemDetailContainer
+    );
+};
+export default ItemDetailContainer;

@@ -1,20 +1,21 @@
 /* Estilo personalizado para la barra de navegación */
 .navbar {
     background-color: #4db43f !important;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     /* Color de fondo verde */
 }
 
 .nav-link {
     color: #ffffff;
     justify-content: center;
+    margin-left: 20px;
 }
 
 /* Centrar los enlaces en la barra de navegación */
-.navbar-nav {
-    margin-right: 450px; /* Esto debería centrar horizontalmente los enlaces */
-    justify-content: center;
-
-}
 
 .bi-bag {
     fill: #ffffff;
@@ -22,5 +23,5 @@
 }
 
 .logo {
-    width: 10%;
+    width: 12%;
 }
